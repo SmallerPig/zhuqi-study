@@ -1,0 +1,4 @@
+spring:
+  redis:
+    host: 172.16.1.110
+    database: 13

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: PARTNER-AUTH
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.1.110:3306/auth-common?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+
