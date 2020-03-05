@@ -1,0 +1,15 @@
+zuul:
+  routes:
+    test:
+      path: /test/**
+      url: http://localhost:8090/
+debug: true
+
+ribbon:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+logging:
+  level:
+    com.squareup.okhttp3: trace
