@@ -18,6 +18,8 @@
         <module>zhuqi-study-dubbo</module>
         <module>zhuqi-study-docker</module>
         <module>zhuqi-study-andshi</module>
+        <module>zhuqi-study-apollo</module>
+        <module>common-eureka-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

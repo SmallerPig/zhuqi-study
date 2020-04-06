@@ -23,7 +23,7 @@ public class SecurityUtil {
     public SecurityUtil(String algorithm, String secret) {
         this.messageDigest = createDigest(algorithm);
         this.secret = Utf8.encode(secret);
-        this.iterations = DEFAULT_ITERATIONS;
+        this.iterations = 1024;
         this.saltKeyLength = DEFAULT_SALT_KEY_LENGTH;
     }
 
@@ -56,18 +56,22 @@ public class SecurityUtil {
 
     private byte[] digest(CharSequence rawPassword, byte[] salt) {
         byte[] digest = digest(concatenate(salt, secret, Utf8.encode(rawPassword)));
+        System.out.println(new String(Hex.encode(digest)));
+        System.out.println(new String(Hex.encode(salt)));
         return concatenate(salt, digest);
     }
 
     private byte[] generateSalt() {
-        byte[] bytes = new byte[saltKeyLength];
-        random.nextBytes(bytes);
+        byte[] bytes = "asdddasd".getBytes();
+
+//        random.nextBytes(bytes);
         return bytes;
     }
 
     public byte[] digest(byte[] value) {
-        for (int i = 0; i < iterations; i++) {
+        for (int i = 0; i < 1024; i++) {
             value = messageDigest.digest(value);
+            System.out.println(new String(Hex.encode(value)));
         }
         return value;
     }
@@ -86,9 +90,12 @@ public class SecurityUtil {
         return newArray;
     }
 
-    public static void main(String[] args) {
-        CharSequence charSequence = "pad::2908A46830300063";
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        CharSequence charSequence = "pad::18088037200019";
         SecurityUtil securityUtil = new SecurityUtil();
+//        String sn = "b860773139d8b7bdb0c8d1e9541342df25d579fe647e05b55ccf305b5076f110";
+//        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+//        System.out.println(new String(Hex.encode(messageDigest.digest(Utf8.encode(sn)))));
         String encode = securityUtil.encode(charSequence);
         System.out.println(encode);
     }
