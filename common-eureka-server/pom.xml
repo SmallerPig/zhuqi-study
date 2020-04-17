@@ -21,14 +21,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>local-nexus</id>
-            <name>local-nexus</name>
-            <url>http://172.16.1.131:8081/repository/maven-public</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+
     </repositories>
 
     <dependencies>

@@ -12,6 +12,7 @@
         <module>zhuqi-study-threadpool</module>
         <module>zhuqi-study-thread</module>
         <module>zhuqi-study-okhttp</module>
+        <module>zhuqi-study-rocketmq</module>
         <module>zhuqi-study-validate</module>
         <module>zhuqi-study-zuul</module>
         <module>zhuqi-study-spring-cloud-contract</module>
@@ -20,6 +21,7 @@
         <module>zhuqi-study-andshi</module>
         <module>zhuqi-study-apollo</module>
         <module>common-eureka-server</module>
+        <module>zhuqi-study-cat</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -47,14 +49,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>local-nexus</id>
-            <name>local-nexus</name>
-            <url>http://172.16.1.131:8081/repository/maven-public</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+
     </repositories>
 
     <dependencyManagement>
