@@ -3,13 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>zhuqi-study-transaction</module>
         <module>zhuqi-study-spring</module>
         <module>zhuqi-study-shiro</module>
         <module>zhuqi-study-junit</module>
         <module>zhuqi-study-h2</module>
         <module>zhuqi-study-cache</module>
-        <module>zhuqi-study-threadpool</module>
         <module>zhuqi-study-thread</module>
         <module>zhuqi-study-okhttp</module>
         <module>zhuqi-study-rocketmq</module>
@@ -18,10 +16,9 @@
         <module>zhuqi-study-spring-cloud-contract</module>
         <module>zhuqi-study-dubbo</module>
         <module>zhuqi-study-docker</module>
-        <module>zhuqi-study-andshi</module>
         <module>zhuqi-study-apollo</module>
-        <module>common-eureka-server</module>
         <module>zhuqi-study-cat</module>
+        <module>zhuqi-study-feign</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -62,7 +59,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!--srping-cloud-->
+            <!--spring-cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>

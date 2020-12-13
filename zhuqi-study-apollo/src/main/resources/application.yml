@@ -1,0 +1,9 @@
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: zuul,application
+server:
+  port: 9090
+cmiot:
+  cat:
+    enabled: false
