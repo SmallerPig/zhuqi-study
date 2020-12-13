@@ -40,10 +40,10 @@ public class PersonServiceImplTest {
     @Test
     public void envTest() {
         MockEnvironment mockEnvironment = new MockEnvironment();
-        mockEnvironment.setProperty("cmiot.security.enabled", "false");
+        mockEnvironment.setProperty("zhuqi.security.enabled", "false");
 
 
-        assertEquals("false", mockEnvironment.getProperty("cmiot.security.enabled"));
+        assertEquals("false", mockEnvironment.getProperty("zhuqi.security.enabled"));
 
     }
 }
