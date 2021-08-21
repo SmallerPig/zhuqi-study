@@ -1,0 +1,8 @@
+app:
+  id: test_app2
+
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application
+  meta: http://172.16.1.105:8081

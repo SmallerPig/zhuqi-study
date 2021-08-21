@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zhuqi.study</groupId>
+    <artifactId>zhuqi-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.18.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <modules>
+        <module>BaseInfomation</module>
+        <module>zhuqi-core</module>
+        <module>zhuqi-api</module>
+        <module>zhuqi-context</module>
+        <module>zhuqi-bus</module>
+        <module>zhuqi-common</module>
+        <module>zhuqi-config-server</module>
+        <module>zhuqi-config-client</module>
+        <module>zhuqi-study-kafka</module>
+        <module>zhuqi-study-swagger</module>
+        <module>zhuqi-study-dubbo-client</module>
+        <module>zhuqi-study-dubbo-server</module>
+        <module>zhuqi-study-dubbo-helloworld</module>
+        <module>zhuqi-quartz</module>
+        <module>zhuqi-study-logback</module>
+        <module>zhuqi-study-apollo</module>
+        <module>zhuqi-coundownlatch</module>
+        <module>zhuqi-rocketmq</module>
+        <module>zhuqi-thymeleaf</module>
+        <module>zhuqi-study-hutools</module>
+        <module>zhuqi-spark</module>
+        <module>zhuqi-spring-boot</module>
+        <module>zhuqi-study-mybatis</module>
+        <module>zhuqi-study-hystrix</module>
+        <module>zhuqi-study-pure-springboot</module>
+        <module>zhuqi-study-pure-spring</module>
+        <module>zhuqi-study-shiro</module>
+        <module>zhuqi-study-spring</module>
+        <module>zhuqi-study-springmvc</module>
+        <module>zhuqi-study-starter</module>
+        <module>zhuqi-study-starter-use</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Edgware.SR3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.2</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>4.3.7.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.8</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.1.9</version>
+            </dependency>
+
+
+            <!--jwt-->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>3.3.0</version>
+            </dependency>
+
+            <!--shiro-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>1.4.0</version>
+            </dependency>
+            <!--shiro ehcache-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>1.3.2</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

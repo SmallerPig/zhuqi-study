@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="layout/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type="text"]:focus{
+
+            background-color: grey;
+        }
+
+        input#userid {
+
+            margin-left: 20px;
+        }
+
+        #add{
+
+            padding: 10px 40px;
+            border: 5px gray solid;
+            box-shadow: 10px 10px 5px aquamarine;
+            font-family: 华文行楷;
+            font-size: 14px;
+            border-radius: 20px;
+        }
+
+        input{
+
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<!--<div class="bs-example" layout:fragment="content">-->
+
+<div layout:fragment="content" >
+    <div id="add">
+        <form action="#" th:action="@{/user/add}" th:object="${userList}" method="post">
+            <label>id</label><input type="text"  id="userid"/><br>
+            <label>姓名</label><input type="text" /><br>
+            <label>密码</label><input type="text" /><br>
+            <label>昵称</label><input type="text" /><br>
+            <input type="submit" value="添加"/>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>

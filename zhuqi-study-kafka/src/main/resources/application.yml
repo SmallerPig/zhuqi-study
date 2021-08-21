@@ -1,0 +1,79 @@
+
+#logging:
+#  level:
+#    root: debug
+zookeeper:
+  servers: localhost:2181
+
+
+
+
+spring:
+  cloud:
+    stream:
+      #指定用kafka stream来作为默认消息中间件
+      default-binder: kafka
+      kafka:
+        #来自KafkaBinderConfigurationProperties
+        binder:
+          brokers: 192.168.200.92:9092
+          zkNodes: 192.168.200.93:2181
+          #如果需要传递自定义header信息，需要在此处声明，不然自定义消息头是不会出现在最终消息当中的
+          #          headers: myType
+          configuration:
+            auto:
+              offset:
+                #可以设置原生kafka属性，比如设置新的消费组从最新的offset开始消费
+                reset: latest
+      bindings:
+        springCloudBusInput:
+          destination: springCloudBus
+          #可以指定消费组，避免每次生成随机group
+          group: cloud-bus-testgroup:${spring.application.index}
+    config:
+      profile: dev
+      #高可用配置中心通过服务Id去自动发现config-server服务组
+      discovery:
+        enabled: true
+        service-id: config-server
+      #使用svn配置时lable是trunk ,github lable是master
+      label: trunk
+      #允许失败快速响应
+      fail-fast: true
+      #允许拉取配置失败时重试，需要添加spring-retry和spirng-aop依赖,下面配置的都是和默认值一样
+      retry:
+        max-attempts: 6
+        initial-interval: 1000
+        multiplier: 1.1
+        max-interval: 2000
+
+
+  application:
+    name: myapp
+  kafka:
+    producer:
+
+      acks:
+    bootstrap-servers: localhost:9092
+
+
+    consumer:
+      group-id: chandler-api-test1
+      auto-offset-reset: earliest
+server:
+  port: 7001
+
+---
+spring:
+  profiles: peer1
+  application:
+    index: 1
+from: peer1
+---
+spring:
+  profiles: peer2
+  application:
+    index: 2
+server:
+  port: 7002
+from: peer2

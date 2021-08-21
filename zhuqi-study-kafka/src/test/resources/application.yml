@@ -1,0 +1,38 @@
+
+#logging:
+#  level:
+#    root: debug
+zookeeper:
+  servers: localhost:2181
+
+
+
+
+spring:
+  application:
+    name: myapp
+  kafka:
+    producer:
+      acks: 1
+
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: chandler-api-test1
+      auto-offset-reset: earliest
+server:
+  port: 7001
+
+---
+spring:
+  profiles: peer1
+  application:
+    index: 1
+from: peer1
+---
+spring:
+  profiles: peer2
+  application:
+    index: 2
+server:
+  port: 7002
+from: peer2
