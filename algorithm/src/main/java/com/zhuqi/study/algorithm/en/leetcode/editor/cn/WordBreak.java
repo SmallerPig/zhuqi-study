@@ -44,9 +44,7 @@
 
 package com.zhuqi.study.algorithm.en.leetcode.editor.cn;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class WordBreak {
     public static void main(String[] args) {
@@ -71,15 +69,18 @@ public class WordBreak {
             int length = s.length();
             boolean[] dp = new boolean[length + 1];
             dp[0] = true;
-            Set<String> sets = new HashSet<>(wordDict);
             for (int i = 1; i <= length; i++) {
-
-                for (int j = 0; j < i; j++) {
-                    if (dp[j] && sets.contains(s.substring(j, i))) {
+                for (String s1 : wordDict) {
+                    int len = s1.length();
+                    if (len > i) {
+                        continue;
+                    }
+                    if ((len == i && s1.equals(s)) || (dp[i - len] && s.substring(i - len, i).equals(s1))) {
                         dp[i] = true;
                         break;
                     }
                 }
+
                 //System.out.println("dp[" + i + "] ====>" + dp[i]);
             }
             return dp[length];
