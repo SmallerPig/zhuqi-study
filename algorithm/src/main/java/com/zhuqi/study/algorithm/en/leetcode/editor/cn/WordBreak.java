@@ -54,10 +54,11 @@ public class WordBreak {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         /**
-         * > 2023/04/18 19:56:51
+         * > 2023/04/18 20:09:17
          * Success:
-         * Runtime:11 ms, faster than 10.89% of Java online submissions.
-         * Memory Usage:41.7 MB, less than 41.99% of Java online submissions.
+         * Runtime:2 ms, faster than 93.62% of Java online submissions.
+         * Memory Usage:41.1 MB, less than 83.48% of Java online submissions.
+         *
          * <p>
          * 依次判断结果
          *
