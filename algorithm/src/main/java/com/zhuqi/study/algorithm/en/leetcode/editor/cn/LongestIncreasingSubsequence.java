@@ -46,6 +46,8 @@
 
 package com.zhuqi.study.algorithm.en.leetcode.editor.cn;
 
+import java.util.Arrays;
+
 public class LongestIncreasingSubsequence {
     public static void main(String[] args) {
         Solution solution = new LongestIncreasingSubsequence().new Solution();
@@ -54,19 +56,17 @@ public class LongestIncreasingSubsequence {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int lengthOfLIS(int[] nums) {
-            int ans = 0;
+            int ans = 1;
             // dp的定义为以i为结尾的数组的最长递增子序列长度
             int[] dp = new int[nums.length];
+            Arrays.fill(dp, 1);
             for (int i = 0; i < nums.length; i++) {
-                int temp = 1;
                 for (int j = 0; j < i; j++) {
                     if (nums[i] > nums[j]) {
-                        temp = Math.max(dp[j] + 1, temp);
+                        dp[i] = Math.max(dp[i], dp[j] + 1);
                     }
+                    ans = Math.max(ans, dp[i]);
                 }
-                dp[i] = temp;
-                ans = Math.max(temp, ans);
-
 
             }
 
