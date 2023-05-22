@@ -18,6 +18,7 @@
 
     <modules>
         <module>BaseInfomation</module>
+        <module>flink</module>
         <module>zhuqi-core</module>
         <module>zhuqi-api</module>
         <module>zhuqi-context</module>
@@ -42,10 +43,10 @@
         <module>zhuqi-study-mybatis</module>
         <module>zhuqi-study-hystrix</module>
         <module>zhuqi-study-pure-springboot</module>
-        <module>zhuqi-study-pure-spring</module>
+        <!--        <module>zhuqi-study-pure-spring</module>-->
         <module>zhuqi-study-shiro</module>
-        <module>zhuqi-study-spring</module>
-        <module>zhuqi-study-springmvc</module>
+        <!--        <module>zhuqi-study-spring</module>-->
+        <!--        <module>zhuqi-study-springmvc</module>-->
         <module>zhuqi-study-starter</module>
         <module>zhuqi-study-starter-use</module>
         <module>zhuqi-azkaban</module>

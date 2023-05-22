@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>east-common</artifactId>
-        <groupId>com.zhuqi.study</groupId>
-        <version>3.2.0-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>zhuqi-study-spring</artifactId>
+        <groupId>zhuqi.study</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
     <artifactId>zhuqi-study-cat</artifactId>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,15 +17,11 @@
         <spring-boot.version>1.5.18.RELEASE</spring-boot.version>
         <east-common.version>3.2.0-SNAPSHOT</east-common.version>
         <lombok.version>1.18.8</lombok.version>
+        <project.version>1.18.8</project.version>
         <mapstruct.version>1.3.1.Final</mapstruct.version>
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.zhuqi.study</groupId>
-            <artifactId>east-common-web</artifactId>
-        </dependency>
 
     </dependencies>
 
