@@ -65,7 +65,6 @@ public class NumberOfTimesBinaryStringIsPrefixAligned {
          * Runtime:548 ms, faster than 7.00% of Java online submissions.
          * Memory Usage:47.9 MB, less than 83.00% of Java online submissions.
          *
-         *
          * @param flips
          * @return
          */
