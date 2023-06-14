@@ -59,38 +59,29 @@ public class NumberOfTimesBinaryStringIsPrefixAligned {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         /**
-         * 暴力运算
-         * > 2023/06/14 15:08:22
+         * 官方题解:记录已经翻转的最大值
+         * <p>
+         * > 2023/06/14 15:11:09
          * Success:
-         * Runtime:548 ms, faster than 7.00% of Java online submissions.
-         * Memory Usage:47.9 MB, less than 83.00% of Java online submissions.
+         * Runtime:2 ms, faster than 92.00% of Java online submissions.
+         * Memory Usage:47.8 MB, less than 91.00% of Java online submissions.
          *
          * @param flips
          * @return
          */
         public int numTimesAllBlue(int[] flips) {
-            int length = flips.length;
-            int ans = 0;
-            boolean[] flags = new boolean[length];
-            for (int i = 0; i < length; i++) {
-                flags[flips[i] - 1] = true;
-                boolean flag = true; // 是否符合答案
-                for (int j = 0; j <= i; j++) {
-                    if (!flags[j]) {
-                        flag = false;
-                        break;
-                    }
+            int n = flips.length;
+            int ans = 0, right = 0;
+            for (int i = 0; i < n; ++i) {
+                right = Math.max(right, flips[i]);
+                if (right == i + 1) {
+                    ++ans;
                 }
-                if (flag) {
-                    ans++;
-                }
-
             }
-
             return ans;
-
         }
     }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
