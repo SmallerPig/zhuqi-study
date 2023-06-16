@@ -62,6 +62,17 @@ public class ParallelCoursesIi {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        /**
+         * > 2023/06/16 09:53:19
+         * Success:
+         * Runtime:108 ms, faster than 83.67% of Java online submissions.
+         * Memory Usage:41.8 MB, less than 18.37% of Java online submissions.
+         *
+         * @param n
+         * @param relations
+         * @param k
+         * @return
+         */
         public int minNumberOfSemesters(int n, int[][] relations, int k) {
             int[] dp = new int[1 << n];
             Arrays.fill(dp, Integer.MAX_VALUE);
