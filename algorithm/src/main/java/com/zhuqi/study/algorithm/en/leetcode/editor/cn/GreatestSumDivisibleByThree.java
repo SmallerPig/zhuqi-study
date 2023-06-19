@@ -48,6 +48,15 @@ public class GreatestSumDivisibleByThree {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        /**
+         * > 2023/06/19 13:41:10
+         * Success:
+         * Runtime:7 ms, faster than 80.97% of Java online submissions.
+         * Memory Usage:43.1 MB, less than 99.46% of Java online submissions.
+         *
+         * @param nums
+         * @return
+         */
         public int maxSumDivThree(int[] nums) {
             int[] f = {0, Integer.MIN_VALUE, Integer.MIN_VALUE};
             for (int num : nums) {
