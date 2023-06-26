@@ -52,38 +52,16 @@ public class FindThePivotInteger {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        /**
-         * > 2023/06/26 15:34:46
-         * Success:
-         * Runtime:0 ms, faster than 100.00% of Java online submissions.
-         * Memory Usage:38.6 MB, less than 31.81% of Java online submissions.
-         *
-         * @param n
-         * @return
-         */
         public int pivotInteger(int n) {
-            if (n == 1) {
-                return 1;
+            int t = (n * n + n) / 2;
+            int x = (int) Math.sqrt(t);
+            if (x * x == t) {
+                return x;
             }
-            int ans = -1;
-            int pre = 0;
-            // 1
-            // 2-3
-            // 3-6
-            // 4-10
-            // 5-15
-            int totalSum = (1 + n) * (n / 2) + ((n % 2 == 0) ? 0 : (n / 2) + 1);
-            for (int i = 0; i < n; i++) {
-                pre = pre + i;
-                if (pre == totalSum - pre + i) {
-                    return i;
-                }
-            }
-
-            return ans;
-
+            return -1;
         }
     }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
