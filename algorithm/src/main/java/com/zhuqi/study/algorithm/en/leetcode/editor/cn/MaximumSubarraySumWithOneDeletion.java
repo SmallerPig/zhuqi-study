@@ -53,41 +53,30 @@ public class MaximumSubarraySumWithOneDeletion {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         /**
-         * > 2023/06/27 13:42:01
-         * Compile Error:
-         * Memory Limit Exceeded
+         * 本题是典型的动态规划应用题，我们可以将问题拆分成多个子问题，即求解以 arr[i] 结尾的最多删除一次的非空子数组的最大和。
+         * 我们以 dp[i][k] 表示以 arr[i] 结尾，删除 k 次的非空子数组的最大和
+         * （删除前的末尾元素为 arr[i]，就视为以 arr[i] 结尾）。
+         * 初始时 dp[0][0]=arr[0]，dp[0][1]＝0
+         * （以 arr[0] 结尾，删除一次的非空子数组不存在，因此 dp[0][1] 不会计入结果）
+         * > 2023/06/27 13:44:28
+         * Success:
+         * Runtime:5 ms, faster than 88.89% of Java online submissions.
+         * Memory Usage:50.6 MB, less than 52.78% of Java online submissions.
          *
          * @param arr
          * @return
          */
         public int maximumSum(int[] arr) {
-            if (arr.length == 1) {
-                return arr[0];
+            int dp0 = arr[0], dp1 = 0, res = arr[0];
+            for (int i = 1; i < arr.length; i++) {
+                dp1 = Math.max(dp0, dp1 + arr[i]);
+                dp0 = Math.max(dp0, 0) + arr[i];
+                res = Math.max(res, Math.max(dp0, dp1));
             }
-            int ans = Integer.MIN_VALUE, length = arr.length;
-            int[][] dp = new int[length][length];
-            for (int i = 0; i < length; i++) {
-                dp[i][i] = arr[i];
-                ans = Math.max(dp[i][i], ans);
-                int tempMin = arr[i] > 0 ? 0 : arr[i];
-                for (int j = i + 1; j < length; j++) {
-                    int cur = arr[j];
-                    if (cur >= 0) {
-                        dp[i][j] = dp[i][j - 1] + cur;
-                    } else if (cur <= tempMin) {
-                        dp[i][j] = dp[i][j - 1] + tempMin;
-                    } else {
-                        dp[i][j] = dp[i][j - 1] + cur;
-                    }
-                    tempMin = Math.min(tempMin, cur);
-                    ans = Math.max(dp[i][j], ans);
-                }
-            }
-
-            return ans;
-
+            return res;
         }
     }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
