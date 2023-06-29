@@ -36,6 +36,8 @@
 
 package com.zhuqi.study.algorithm.en.leetcode.editor.cn;
 
+import java.util.Stack;
+
 public class NextGreaterElementIi {
     public static void main(String[] args) {
         Solution solution = new NextGreaterElementIi().new Solution();
@@ -46,30 +48,33 @@ public class NextGreaterElementIi {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         /**
-         * > 2023/06/28 18:59:55
+         * > 2023/06/29 14:13:24
          * Success:
-         * Runtime:90 ms, faster than 5.15% of Java online submissions.
-         * Memory Usage:44.4 MB, less than 5.11% of Java online submissions.
+         * Runtime:53 ms, faster than 7.31% of Java online submissions.
+         * Memory Usage:43.7 MB, less than 27.94% of Java online submissions.
          *
          * @param nums
          * @return
          */
         public int[] nextGreaterElements(int[] nums) {
+            //输入: nums = [1,2,3,4,3]
+            //输出: [2,3,4,-1,4]
             int length = nums.length;
             int[] ans = new int[length];
-            for (int i = 0; i < length; i++) {
-                int cur = -1;
-                for (int j = i + 1; j < length + i; j++) {
-                    if (nums[j % length] > nums[i]) {
-                        cur = nums[j % length];
-                        break;
-                    }
+            Stack<Integer> stack = new Stack<>();
+            for (int i = 2 * length - 1; i >= 0; i--) {
+                int cur = nums[i % length];
+
+                while (!stack.isEmpty() && stack.peek() <= cur) {
+                    stack.pop();
                 }
-                ans[i] = cur;
+                ans[i % length] = stack.isEmpty() ? -1 : stack.peek();
+                stack.push(cur);
             }
 
             return ans;
         }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
