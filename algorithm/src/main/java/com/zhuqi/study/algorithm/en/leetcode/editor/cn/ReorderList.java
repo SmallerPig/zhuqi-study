@@ -45,8 +45,6 @@ package com.zhuqi.study.algorithm.en.leetcode.editor.cn;
 public class ReorderList {
     public static void main(String[] args) {
         Solution solution = new ReorderList().new Solution();
-        ListNode helper = solution.reverse(ListNode.getByArray(new int[]{1, 2, 3, 4, 5}), true);
-        System.out.println("helper = " + helper);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
