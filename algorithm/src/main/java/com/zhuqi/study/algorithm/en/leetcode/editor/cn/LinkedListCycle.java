@@ -55,9 +55,6 @@
 
 package com.zhuqi.study.algorithm.en.leetcode.editor.cn;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class LinkedListCycle {
     public static void main(String[] args) {
         Solution solution = new LinkedListCycle().new Solution();
@@ -77,11 +74,12 @@ public class LinkedListCycle {
      * }
      */
     public class Solution {
+        
         /**
-         * > 2023/07/06 18:51:51
+         * > 2023/07/06 18:58:19
          * Success:
-         * Runtime:4 ms, faster than 12.81% of Java online submissions.
-         * Memory Usage:41.9 MB, less than 98.35% of Java online submissions.
+         * Runtime:0 ms, faster than 100.00% of Java online submissions.
+         * Memory Usage:42.8 MB, less than 5.29% of Java online submissions.
          *
          * @param head
          * @return
@@ -90,13 +88,13 @@ public class LinkedListCycle {
             if (head == null || head.next == null) {
                 return false;
             }
-            Set<ListNode> maps = new HashSet<>();
-            while (head.next != null) {
-                if (maps.contains(head)) {
+            ListNode fast = head, slow = head;
+            while (fast != null && fast.next != null) {
+                fast = fast.next.next;
+                slow = slow.next;
+                if (fast == slow) {
                     return true;
                 }
-                maps.add(head);
-                head = head.next;
             }
 
             return false;
