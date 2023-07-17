@@ -41,8 +41,6 @@
 
 package com.zhuqi.study.algorithm.en.leetcode.editor.cn;
 
-import java.util.Stack;
-
 public class AddStrings {
     public static void main(String[] args) {
         Solution solution = new AddStrings().new Solution();
@@ -52,55 +50,34 @@ public class AddStrings {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        
         /**
-         * > 2023/07/17 19:00:28
+         * > 2023/07/17 19:02:37
          * Success:
-         * Runtime:5 ms, faster than 10.70% of Java online submissions.
-         * Memory Usage:42.5 MB, less than 12.47% of Java online submissions.
+         * Runtime:2 ms, faster than 36.66% of Java online submissions.
+         * Memory Usage:40.5 MB, less than 78.80% of Java online submissions.
          *
          * @param num1
          * @param num2
          * @return
          */
         public String addStrings(String num1, String num2) {
-            int l1 = num1.length(), l2 = num2.length();
-            int sp = Math.abs(l1 - l2);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < sp; i++) {
-                sb.append("0");
-
+            int i = num1.length() - 1, j = num2.length() - 1, add = 0;
+            StringBuffer ans = new StringBuffer();
+            while (i >= 0 || j >= 0 || add != 0) {
+                int x = i >= 0 ? num1.charAt(i) - '0' : 0;
+                int y = j >= 0 ? num2.charAt(j) - '0' : 0;
+                int result = x + y + add;
+                ans.append(result % 10);
+                add = result / 10;
+                i--;
+                j--;
             }
-            String preZero = sb.toString();
-            if (l1 > l2) {
-                num2 = preZero + num2;
-            } else {
-                num1 = preZero + num1;
-            }
-            int l = Math.max(l1, l2);
-            Stack<Integer> stack = new Stack<>();
-            boolean flag = false;
-            for (int i = l - 1; i >= 0; i--) {
-                int i1 = num1.charAt(i) - '0';
-                int i2 = num2.charAt(i) - '0';
-                int tempSum = i1 + i2 + (flag ? 1 : 0);
-
-                int i3 = (tempSum) % 10;
-                stack.push(i3);
-                flag = tempSum >= 10;
-            }
-            if (flag) {
-                stack.push(1);
-            }
-            sb = new StringBuilder();
-            while (!stack.isEmpty()) {
-                sb.append(stack.pop());
-            }
-
-            return sb.toString();
-
+            // 计算完以后的答案需要翻转过来
+            ans.reverse();
+            return ans.toString();
         }
     }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
