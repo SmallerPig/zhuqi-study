@@ -41,25 +41,20 @@ public class NumberOfWaysToBuyPensAndPencils{
     }
     
         //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public long waysToBuyPensPencils(int total, int cost1, int cost2) {
-        long ans = 0;
-        int maxC1 =total /cost1 +1;
-        for (int i = 0; i < maxC1; i++) {
-            int cut = total-i*cost1;
-
-            ans += cut/cost2 +1 ;
-//            for (int j = 0; j <= cut/cost2; j++) {
-//                ans++;
-//            }
-
+        class Solution {
+            public long waysToBuyPensPencils(int total, int cost1, int cost2) {
+                if (cost1 < cost2) {
+                    return waysToBuyPensPencils(total, cost2, cost1);
+                }
+                long res = 0, cnt = 0;
+                while (cnt * cost1 <= total) {
+                    res += (total - cnt * cost1) / cost2 + 1;
+                    cnt++;
+                }
+                return res;
+            }
         }
 
-
-        return ans;
-
-    }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
